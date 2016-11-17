@@ -123,7 +123,7 @@ class MenuModel extends Model
      */
     public function removeMenu($id){
         $this->startTrans();
-        $menu_son_ids = $this->field('id')->where(['parent_id'=>$id])->find();
+        $menu_son_ids = $this->where(['parent_id'=>$id])->getField('id',true);
         //创建orm
         $orm = new MySQLORM();
         //创建nestedsets
@@ -141,12 +141,8 @@ class MenuModel extends Model
             return false;
         }
         //删除关联表儿子信息
-        if (empty($menu_son_ids)) {
-            $this->commit();
-            return true;
-        }
-        foreach($menu_son_ids as $menu_son_id){
-            if (($result = M('MenuPermission')->where(['menu_id'=>$menu_son_id])->delete()) === false) {
+        if (!empty($menu_son_ids)) {
+            if (M('MenuPermission')->where(['menu_id'=>['in',$menu_son_ids]])->delete() === false) {
                 $this->error='删除关联表儿子数据失败';
                 $this->rollback();
                 return false;

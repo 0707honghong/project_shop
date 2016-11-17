@@ -3706,3 +3706,495 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
 
+[ 2016-11-17T13:58:58+08:00 ] 127.0.0.1 /Menu/remove/id/8.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0030s ]
+SQL: SELECT `id` FROM `shop_menu` WHERE `parent_id` = 8 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::getRow() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 572 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 97 行.
+SQL: SELECT parent_id, lft, rght, level FROM shop_menu WHERE id = 8 [ RunTime:0.0000s ]
+NOTIC: [2048] Only variables should be passed by reference E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 102 行.
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::query() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 258 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 48 行.
+SQL: DELETE FROM shop_menu WHERE lft >= 15 AND rght <= 20 [ RunTime:0.0010s ]
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::query() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 278 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 48 行.
+SQL: UPDATE shop_menu SET lft = IF(lft > 15, lft - 6, lft), rght = rght - 6 WHERE rght > 20 [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `shop_menu_permission` [ RunTime:0.0030s ]
+SQL: DELETE FROM `shop_menu_permission` WHERE `menu_id` = 8 [ RunTime:0.0000s ]
+SQL: DELETE FROM `shop_menu_permission` WHERE `menu_id` = 9 [ RunTime:0.0000s ]
+
+[ 2016-11-17T13:59:15+08:00 ] 127.0.0.1 /Menu/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `shop_menu` ORDER BY lft  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-17T13:59:19+08:00 ] 127.0.0.1 /Menu/remove/id/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0030s ]
+SQL: SELECT `id` FROM `shop_menu` WHERE `parent_id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::getRow() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 572 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 97 行.
+SQL: SELECT parent_id, lft, rght, level FROM shop_menu WHERE id = 1 [ RunTime:0.0000s ]
+NOTIC: [2048] Only variables should be passed by reference E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 102 行.
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::query() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 258 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 48 行.
+SQL: DELETE FROM shop_menu WHERE lft >= 1 AND rght <= 10 [ RunTime:0.0000s ]
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::query() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 278 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 48 行.
+SQL: UPDATE shop_menu SET lft = IF(lft > 1, lft - 10, lft), rght = rght - 10 WHERE rght > 10 [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `shop_menu_permission` [ RunTime:0.0040s ]
+SQL: DELETE FROM `shop_menu_permission` WHERE `menu_id` = 1 [ RunTime:0.0000s ]
+SQL: DELETE FROM `shop_menu_permission` WHERE `menu_id` = 2 [ RunTime:0.0010s ]
+
+[ 2016-11-17T16:59:38+08:00 ] 127.0.0.1 /Menu/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `shop_menu` ORDER BY lft  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-17T16:59:42+08:00 ] 127.0.0.1 /Menu/remove/id/8.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0050s ]
+SQL: SELECT `id` FROM `shop_menu` WHERE `parent_id` = 8 LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-11-17T17:00:41+08:00 ] 127.0.0.1 /Menu/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `shop_menu` ORDER BY lft  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-17T17:00:43+08:00 ] 127.0.0.1 /Menu/remove/id/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0020s ]
+SQL: SELECT `id` FROM `shop_menu` WHERE `parent_id` = 1  [ RunTime:0.0000s ]
+
+[ 2016-11-17T17:02:44+08:00 ] 127.0.0.1 /Menu/remove/id/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.002000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0030s ]
+SQL: SELECT `id` FROM `shop_menu` WHERE `parent_id` = 1  [ RunTime:0.0000s ]
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::getRow() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 572 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 97 行.
+SQL: SELECT parent_id, lft, rght, level FROM shop_menu WHERE id = 1 [ RunTime:0.0010s ]
+NOTIC: [2048] Only variables should be passed by reference E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 102 行.
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::query() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 258 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 48 行.
+SQL: DELETE FROM shop_menu WHERE lft >= 1 AND rght <= 10 [ RunTime:0.0000s ]
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::query() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 278 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 48 行.
+SQL: UPDATE shop_menu SET lft = IF(lft > 1, lft - 10, lft), rght = rght - 10 WHERE rght > 10 [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `shop_menu_permission` [ RunTime:0.0020s ]
+SQL: DELETE FROM `shop_menu_permission` WHERE `menu_id` = 1 [ RunTime:0.0010s ]
+SQL: DELETE FROM `shop_menu_permission` WHERE `menu_id` IN ('2','3','4','7') [ RunTime:0.0000s ]
+
+[ 2016-11-17T17:53:07+08:00 ] 127.0.0.1 /Menu/remove/id/8.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0040s ]
+SQL: SELECT `id` FROM `shop_menu` WHERE `parent_id` = 8  [ RunTime:0.0000s ]
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::getRow() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 572 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 97 行.
+SQL: SELECT parent_id, lft, rght, level FROM shop_menu WHERE id = 8 [ RunTime:0.0000s ]
+NOTIC: [2048] Only variables should be passed by reference E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 102 行.
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::query() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 258 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 48 行.
+SQL: DELETE FROM shop_menu WHERE lft >= 15 AND rght <= 20 [ RunTime:0.0000s ]
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::query() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 278 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 48 行.
+SQL: UPDATE shop_menu SET lft = IF(lft > 15, lft - 6, lft), rght = rght - 6 WHERE rght > 20 [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `shop_menu_permission` [ RunTime:0.0030s ]
+SQL: DELETE FROM `shop_menu_permission` WHERE `menu_id` = 8 [ RunTime:0.0010s ]
+SQL: DELETE FROM `shop_menu_permission` WHERE `menu_id` IN ('9','10') [ RunTime:0.0000s ]
+
+[ 2016-11-17T17:57:21+08:00 ] 127.0.0.1 /Menu/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `shop_menu` ORDER BY lft  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-17T17:57:23+08:00 ] 127.0.0.1 /Menu/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `shop_menu` ORDER BY lft  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `shop_permission` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `shop_permission` ORDER BY lft  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: row E:\project_shop\admin.shop.com\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 26 行.
+NOTIC: [8] Undefined variable: row E:\project_shop\admin.shop.com\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 32 行.
+NOTIC: [8] Undefined variable: row E:\project_shop\admin.shop.com\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 51 行.
+NOTIC: [8] Undefined variable: row E:\project_shop\admin.shop.com\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 52 行.
+NOTIC: [8] Undefined variable: row E:\project_shop\admin.shop.com\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 68 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-17T17:57:33+08:00 ] 127.0.0.1 /Menu/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: validate E:\project_shop\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\project_shop\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::getRow() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 572 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 97 行.
+SQL: SELECT parent_id, lft, rght, level FROM shop_menu WHERE id = 0 [ RunTime:0.0000s ]
+NOTIC: [2048] Only variables should be passed by reference E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 102 行.
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::getOne() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 195 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 114 行.
+SQL: SELECT MAX(rght) FROM shop_menu [ RunTime:0.0000s ]
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::query() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 224 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 48 行.
+SQL: UPDATE shop_menu SET rght = rght + 2, lft = IF(lft >= 27, lft + 2, lft) WHERE rght >= 27 [ RunTime:0.0010s ]
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::insert() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 232 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 56 行.
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0030s ]
+SQL: INSERT INTO `shop_menu` (`name`,`path`,`parent_id`,`id`,`lft`,`rght`,`level`) VALUES ('测试1','','0','','27','28','1') [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `shop_menu_permission` [ RunTime:0.0020s ]
+SQL: INSERT INTO `shop_menu_permission` (`menu_id`,`permission_id`) VALUES ('21','22'),('21','23'),('21','24') [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-17T17:57:34+08:00 ] 127.0.0.1 /Menu/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `shop_menu` ORDER BY lft  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-17T17:57:36+08:00 ] 127.0.0.1 /Menu/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `shop_menu` ORDER BY lft  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `shop_permission` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `shop_permission` ORDER BY lft  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: row E:\project_shop\admin.shop.com\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 26 行.
+NOTIC: [8] Undefined variable: row E:\project_shop\admin.shop.com\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 32 行.
+NOTIC: [8] Undefined variable: row E:\project_shop\admin.shop.com\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 51 行.
+NOTIC: [8] Undefined variable: row E:\project_shop\admin.shop.com\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 52 行.
+NOTIC: [8] Undefined variable: row E:\project_shop\admin.shop.com\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 68 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-17T17:57:43+08:00 ] 127.0.0.1 /Menu/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: validate E:\project_shop\ThinkPHP\Library\Think\Model.class.php 第 1185 行.
+NOTIC: [8] Undefined index: auto E:\project_shop\ThinkPHP\Library\Think\Model.class.php 第 1128 行.
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::getRow() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 572 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 97 行.
+SQL: SELECT parent_id, lft, rght, level FROM shop_menu WHERE id = 21 [ RunTime:0.0000s ]
+NOTIC: [2048] Only variables should be passed by reference E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 102 行.
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::getRow() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 206 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 97 行.
+SQL: SELECT rght, lft, level FROM shop_menu WHERE id = 21 [ RunTime:0.0010s ]
+NOTIC: [2048] Only variables should be passed by reference E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 102 行.
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::query() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 224 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 48 行.
+SQL: UPDATE shop_menu SET rght = rght + 2, lft = IF(lft >= 28, lft + 2, lft) WHERE rght >= 28 [ RunTime:0.0000s ]
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::insert() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 232 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 56 行.
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0030s ]
+SQL: INSERT INTO `shop_menu` (`name`,`path`,`parent_id`,`id`,`lft`,`rght`,`level`) VALUES ('测试2','','21','','28','29','2') [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `shop_menu_permission` [ RunTime:0.0040s ]
+SQL: INSERT INTO `shop_menu_permission` (`menu_id`,`permission_id`) VALUES ('22','22'),('22','24') [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-17T17:57:45+08:00 ] 127.0.0.1 /Menu/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `shop_menu` ORDER BY lft  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-17T17:58:00+08:00 ] 127.0.0.1 /Menu/remove/id/21.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0030s ]
+SQL: SELECT `id` FROM `shop_menu` WHERE `parent_id` = 21  [ RunTime:0.0000s ]
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::getRow() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 572 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 97 行.
+SQL: SELECT parent_id, lft, rght, level FROM shop_menu WHERE id = 21 [ RunTime:0.0010s ]
+NOTIC: [2048] Only variables should be passed by reference E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 102 行.
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::query() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 258 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 48 行.
+SQL: DELETE FROM shop_menu WHERE lft >= 27 AND rght <= 30 [ RunTime:0.0000s ]
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::query() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 278 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 48 行.
+SQL: UPDATE shop_menu SET lft = IF(lft > 27, lft - 4, lft), rght = rght - 4 WHERE rght > 30 [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `shop_menu_permission` [ RunTime:0.0030s ]
+SQL: DELETE FROM `shop_menu_permission` WHERE `menu_id` = 21 [ RunTime:0.0010s ]
+SQL: DELETE FROM `shop_menu_permission` WHERE `menu_id` IN ('22') [ RunTime:0.0000s ]
+
+[ 2016-11-17T17:58:09+08:00 ] 127.0.0.1 /Menu/remove/id/21.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0030s ]
+SQL: SELECT `id` FROM `shop_menu` WHERE `parent_id` = 21  [ RunTime:0.0000s ]
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::getRow() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 572 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 97 行.
+SQL: SELECT parent_id, lft, rght, level FROM shop_menu WHERE id = 21 [ RunTime:0.0000s ]
+NOTIC: [2048] Only variables should be passed by reference E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 102 行.
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::query() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 258 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 48 行.
+SQL: DELETE FROM shop_menu WHERE lft >= 27 AND rght <= 30 [ RunTime:0.0010s ]
+NOTIC: [4096] Argument 2 passed to Admin\Logic\MySQLORM::query() must be of the type array, string given, called in E:\project_shop\admin.shop.com\Application\Admin\Logic\NestedSets.class.php on line 278 and defined E:\project_shop\admin.shop.com\Application\Admin\Logic\MySQLORM.class.php 第 48 行.
+SQL: UPDATE shop_menu SET lft = IF(lft > 27, lft - 4, lft), rght = rght - 4 WHERE rght > 30 [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `shop_menu_permission` [ RunTime:0.0030s ]
+SQL: DELETE FROM `shop_menu_permission` WHERE `menu_id` = 21 [ RunTime:0.0000s ]
+SQL: DELETE FROM `shop_menu_permission` WHERE `menu_id` IN ('22') [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-17T17:58:10+08:00 ] 127.0.0.1 /Menu/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run \Common\Behaviors\checkPermissionBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `shop_menu` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `shop_menu` ORDER BY lft  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
