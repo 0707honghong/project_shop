@@ -81,7 +81,12 @@ class MenuModel extends Model
                 return false;
             }
         }
-
+        //修改基本信息
+        if ($this->save() === false) {
+            $this->error = '修改基本信息失败';
+            $this->rollback();
+            return false;
+        }
         $menuPermission_Model = M('MenuPermission');
         //删除旧的权限关联
         if ($menuPermission_Model->where(['menu_id'=>$id])->delete() === false) {
@@ -117,15 +122,37 @@ class MenuModel extends Model
      * @return bool
      */
     public function removeMenu($id){
+        $this->startTrans();
+        $menu_son_ids = $this->field('id')->where(['parent_id'=>$id])->find();
         //创建orm
         $orm = new MySQLORM();
         //创建nestedsets
         $nestedsets = new NestedSets($orm,$this->getTableName(),'lft','rght','parent_id','id','level');
-        //删除数据
+        //删除菜单数据
         if ($nestedsets->delete($id) === false) {
-            $this->error='删除失败';
+            $this->rollback();
+            $this->error='删除菜单失败';
             return false;
         }
+        //删除关联表父级信息
+        if ( M('MenuPermission')->where(['menu_id'=>$id])->delete() === false) {
+            $this->error='删除关联表数据失败';
+            $this->rollback();
+            return false;
+        }
+        //删除关联表儿子信息
+        if (empty($menu_son_ids)) {
+            $this->commit();
+            return true;
+        }
+        foreach($menu_son_ids as $menu_son_id){
+            if (($result = M('MenuPermission')->where(['menu_id'=>$menu_son_id])->delete()) === false) {
+                $this->error='删除关联表儿子数据失败';
+                $this->rollback();
+                return false;
+            }
+        }
+        $this->commit();
         return true;
     }
 
