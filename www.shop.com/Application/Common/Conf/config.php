@@ -9,6 +9,7 @@ return array(
         '__JS__'   =>'/Public/js',
         '__IMG__'   =>'/Public/images',
         '__LAYER__'   =>'/Public/ext/layer',
+        '__VALIDATION__'   =>'/Public/ext/validation',
     ],
     /* 数据库设置 */
     'DB_TYPE'               =>  'mysql',     // 数据库类型
@@ -26,5 +27,6 @@ return array(
         'SIZE'  =>5,
         'THEME' =>'%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% %HEADER%'
     ],
+    //cookie配置
     'COOKIE_PREFIX'         =>  'www_shop_com_',
 );

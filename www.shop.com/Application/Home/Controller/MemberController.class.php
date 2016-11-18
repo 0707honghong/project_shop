@@ -50,6 +50,32 @@ class MemberController extends Controller
     }
 
     /**
+     * 激活账号
+     * @param $email
+     * @param $token
+     */
+    public function active($email,$token){
+        //修改数据中对应的账号
+        if ($this->_model->where(['email'=>$email,'active_token'=>$token,'status'=>0])->setField('status',1)) {
+            $this->success('激活成功',U('Index/index'));
+        }else{
+            $this->error('激活失败',U('Index/index'));
+        }
+    }
+
+    /**
+     * 验证是否已被注册
+     */
+    public function checkByParam(){
+        $cond = I('get.');
+        if ($this->_model->where($cond)->count()) {
+            $this->ajaxReturn(false);
+        }else{
+            $this->ajaxReturn(true);
+        }
+    }
+
+    /**
      * 发送手机验证码
      * @param $tel
      */
@@ -86,4 +112,32 @@ class MemberController extends Controller
         //代表发送失败，可能是接口速度限制、没有钱、或者是非ajax调用
         $this->ajaxReturn(false);
     }
+
+    public function mail($address){
+        vendor('PhpMailer.PHPMailerAutoload');
+        $mail = new \PHPMailer;
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'smtp.163.com';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Username = 'hong_x94@163.com';                 // SMTP username
+        $mail->Password = 'xh20140226tw';                           // SMTP password    授权码
+        $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 465;                                    // TCP port to connect to
+
+        $mail->setFrom('hong_x94@163.com', 'hong');
+        $mail->addAddress($address);     // Add a recipient
+        $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->CharSet='utf-8';
+
+        $mail->Subject = '健康饮食传播有限公司';
+        $mail->Body    = '请点击以下链接激活<b></b>';
+
+        if(!$mail->send()) {
+            echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            echo 'Message has been sent';
+        }
+    }
+
 }

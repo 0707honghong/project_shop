@@ -44,3 +44,36 @@ function dealErrorStr(\Think\Model $model){
 function salt_mcrypt($password,$salt){
     return md5(md5($password).$salt);       //加密提交的密码后，连接盐，再加密
 }
+
+function send_mail($address,$subject,$content){
+    vendor('PhpMailer.PHPMailerAutoload');
+    $mail = new \PHPMailer;
+    $mail->isSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = 'smtp.163.com';  // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = 'hong_x94@163.com';                 // SMTP username
+    $mail->Password = 'xh20140226tw';                           // SMTP password    授权码
+    $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = 465;                                    // TCP port to connect to
+
+    $mail->setFrom('hong_x94@163.com', 'hong');
+    $mail->addAddress($address);     // Add a recipient
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->CharSet='utf-8';
+
+    $mail->Subject = $subject;
+    $mail->Body    = $content;
+
+    if (!$mail->send()) {
+        $data=[
+            'status'=>false,
+            'msg'=>$mail->ErrorInfo,
+        ];
+    }else{
+        $data=[
+            'status'=>true,
+            'msg'=>'发送成功',
+        ];
+    }
+    return $data;
+}

@@ -70,6 +70,17 @@ class MemberModel extends Model
      */
     public function addMember(){
         $this->data['password'] = salt_mcrypt($this->data['password'],$this->data['salt']);
+        //发送邮件
+        //注册中带有一个激活连接，点击就验证是否正确(通过一个随机字符串)
+        $address = $this->data['email'];
+        $subject = '欢迎注册健康饮食传播有限公司';
+        $token = \Org\Util\String::randString(32);
+        $url = U('Member/active',['token'=>$token,'email'=>$address],'',true);
+        $content = '<h2>欢迎<b>'.$this->data['username'].'</b>注册</h2>。<p>感谢您注册'.$subject.
+            '，账号需激活才能使用,请单击<a href="'.$url.'">激活连接</a></p>
+            <p>如无法点击，请复制下面的地址在浏览器中粘贴打开'.$url.'</p>';
+        send_mail($address,$subject,$content);
+        $this->data['active_token'] = $token;
         return $this->add();
     }
 
