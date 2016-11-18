@@ -637,7 +637,7 @@ defaultPlotOptions.arearange = merge(defaultPlotOptions.area, {
 	marker: null,
 	threshold: null,
 	tooltip: {
-		pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.low}</b> - <b>{point.high}</b><br/>' 
+		pointFormat: '<span css="color:{series.color}">{series.name}</span>: <b>{point.low}</b> - <b>{point.high}</b><br/>'
 	},
 	trackByArea: true,
 	dataLabels: {
@@ -1140,7 +1140,7 @@ defaultPlotOptions.boxplot = merge(defaultPlotOptions.column, {
 	//stemWidth: null,
 	threshold: null,
 	tooltip: {
-		pointFormat: '<span style="color:{series.color};font-weight:bold">{series.name}</span><br/>' +
+		pointFormat: '<span css="color:{series.color};font-weight:bold">{series.name}</span><br/>' +
 			'Maximum: {point.high}<br/>' +
 			'Upper quartile: {point.q3}<br/>' +
 			'Median: {point.median}<br/>' +

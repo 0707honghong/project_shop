@@ -17,18 +17,18 @@ class Html extends TagLib{
     // 标签定义
     protected $tags   =  array(
         // 标签定义： attr 属性列表 close 是否闭合（0 或者1 默认1） alias 标签别名 level 嵌套层次
-        'editor'    => array('attr'=>'id,name,style,width,height,type','close'=>1),
+        'editor'    => array('attr'=>'id,name,css,width,height,type','close'=>1),
         'select'    => array('attr'=>'name,options,values,output,multiple,id,size,first,change,selected,dblclick','close'=>0),
-        'grid'      => array('attr'=>'id,pk,style,action,actionlist,show,datasource','close'=>0),
-        'list'      => array('attr'=>'id,pk,style,action,actionlist,show,datasource,checkbox','close'=>0),
-        'imagebtn'  => array('attr'=>'id,name,value,type,style,click','close'=>0),
+        'grid'      => array('attr'=>'id,pk,css,action,actionlist,show,datasource','close'=>0),
+        'list'      => array('attr'=>'id,pk,css,action,actionlist,show,datasource,checkbox','close'=>0),
+        'imagebtn'  => array('attr'=>'id,name,value,type,css,click','close'=>0),
         'checkbox'  => array('attr'=>'name,checkboxes,checked,separator','close'=>0),
         'radio'     => array('attr'=>'name,radios,checked,separator','close'=>0)
         );
 
     /**
      * editor标签解析 插入可视化编辑器
-     * 格式： <html:editor id="editor" name="remark" type="FCKeditor" style="" >{$vo.remark}</html:editor>
+     * 格式： <html:editor id="editor" name="remark" type="FCKeditor" css="" >{$vo.remark}</html:editor>
      * @access public
      * @param array $tag 标签属性
      * @return string|void
@@ -36,7 +36,7 @@ class Html extends TagLib{
     public function _editor($tag,$content) {
         $id			=	!empty($tag['id'])?$tag['id']: '_editor';
         $name   	=	$tag['name'];
-        $style   	    =	!empty($tag['style'])?$tag['style']:'';
+        $style   	    =	!empty($tag['css'])?$tag['css']:'';
         $width		=	!empty($tag['width'])?$tag['width']: '100%';
         $height     =	!empty($tag['height'])?$tag['height'] :'320px';
      //   $content    =   $tag['content'];
@@ -52,16 +52,16 @@ class Html extends TagLib{
                 $parseStr	=	"<!-- 编辑器调用开始 --><script type='text/javascript' src='__ROOT__/Public/Js/eWebEditor/js/edit.js'></script><input type='hidden'  id='{$id}' name='{$name}'  value='{$conent}'><iframe src='__ROOT__/Public/Js/eWebEditor/ewebeditor.htm?id={$name}' frameborder=0 scrolling=no width='{$width}' height='{$height}'></iframe><script type='text/javascript'>function saveEditor(){document.getElementById('{$id}').value = getHTML();} </script><!-- 编辑器调用结束 -->";
                 break;
             case 'NETEASE':
-                $parseStr   =	'<!-- 编辑器调用开始 --><textarea id="'.$id.'" name="'.$name.'" style="display:none">'.$content.'</textarea><iframe ID="Editor" name="Editor" src="__ROOT__/Public/Js/HtmlEditor/index.html?ID='.$name.'" frameBorder="0" marginHeight="0" marginWidth="0" scrolling="No" style="height:'.$height.';width:'.$width.'"></iframe><!-- 编辑器调用结束 -->';
+                $parseStr   =	'<!-- 编辑器调用开始 --><textarea id="'.$id.'" name="'.$name.'" css="display:none">'.$content.'</textarea><iframe ID="Editor" name="Editor" src="__ROOT__/Public/Js/HtmlEditor/index.html?ID='.$name.'" frameBorder="0" marginHeight="0" marginWidth="0" scrolling="No" css="height:'.$height.';width:'.$width.'"></iframe><!-- 编辑器调用结束 -->';
                 break;
             case 'UBB':
-                $parseStr	=	'<script type="text/javascript" src="__ROOT__/Public/Js/UbbEditor.js"></script><div style="padding:1px;width:'.$width.';border:1px solid silver;float:left;"><script LANGUAGE="JavaScript"> showTool(); </script></div><div><TEXTAREA id="UBBEditor" name="'.$name.'"  style="clear:both;float:none;width:'.$width.';height:'.$height.'" >'.$content.'</TEXTAREA></div><div style="padding:1px;width:'.$width.';border:1px solid silver;float:left;"><script LANGUAGE="JavaScript">showEmot();  </script></div>';
+                $parseStr	=	'<script type="text/javascript" src="__ROOT__/Public/Js/UbbEditor.js"></script><div css="padding:1px;width:'.$width.';border:1px solid silver;float:left;"><script LANGUAGE="JavaScript"> showTool(); </script></div><div><TEXTAREA id="UBBEditor" name="'.$name.'"  css="clear:both;float:none;width:'.$width.';height:'.$height.'" >'.$content.'</TEXTAREA></div><div css="padding:1px;width:'.$width.';border:1px solid silver;float:left;"><script LANGUAGE="JavaScript">showEmot();  </script></div>';
                 break;
             case 'KINDEDITOR':
-                $parseStr   =  '<script type="text/javascript" src="__ROOT__/Public/Js/KindEditor/kindeditor.js"></script><script type="text/javascript"> KE.show({ id : \''.$id.'\'  ,urlType : "absolute"});</script><textarea id="'.$id.'" style="'.$style.'" name="'.$name.'" >'.$content.'</textarea>';
+                $parseStr   =  '<script type="text/javascript" src="__ROOT__/Public/Js/KindEditor/kindeditor.js"></script><script type="text/javascript"> KE.show({ id : \''.$id.'\'  ,urlType : "absolute"});</script><textarea id="'.$id.'" css="'.$style.'" name="'.$name.'" >'.$content.'</textarea>';
                 break;
             default :
-                $parseStr  =  '<textarea id="'.$id.'" style="'.$style.'" name="'.$name.'" >'.$content.'</textarea>';
+                $parseStr  =  '<textarea id="'.$id.'" css="'.$style.'" name="'.$name.'" >'.$content.'</textarea>';
         }
 
         return $parseStr;
@@ -78,7 +78,7 @@ class Html extends TagLib{
         $name       = $tag['name'];                //名称
         $value      = $tag['value'];                //文字
         $id         = isset($tag['id'])?$tag['id']:'';                //ID
-        $style      = isset($tag['style'])?$tag['style']:'';                //样式名
+        $style      = isset($tag['css'])?$tag['css']:'';                //样式名
         $click      = isset($tag['click'])?$tag['click']:'';                //点击
         $type       = empty($tag['type'])?'button':$tag['type'];                //按钮类型
 
@@ -102,13 +102,13 @@ class Html extends TagLib{
         $name       = $tag['name'];                //名称
         $alt        = $tag['alt'];                //文字
         $id         = $tag['id'];                //ID
-        $style      = $tag['style'];                //样式名
+        $style      = $tag['css'];                //样式名
         $click      = $tag['click'];                //点击
         $type       = $tag['type'];                //点击
         if(empty($type)) {
             $type = 'button';
         }
-       	$parseStr   = '<span class="'.$style.'" ><input title="'.$alt.'" type="'.$type.'" id="'.$id.'"  name="'.$name.'" onmouseover="this.style.filter=\'alpha(opacity=100)\'" onmouseout="this.style.filter=\'alpha(opacity=80)\'" onclick="'.$click.'" align="absmiddle" class="'.$name.' imgLink"></span>';
+       	$parseStr   = '<span class="'.$style.'" ><input title="'.$alt.'" type="'.$type.'" id="'.$id.'"  name="'.$name.'" onmouseover="this.css.filter=\'alpha(opacity=100)\'" onmouseout="this.css.filter=\'alpha(opacity=80)\'" onclick="'.$click.'" align="absmiddle" class="'.$name.' imgLink"></span>';
 
         return $parseStr;
     }
@@ -130,7 +130,7 @@ class Html extends TagLib{
         $size       = $tag['size'];
         $first      = $tag['first'];
         $selected   = $tag['selected'];
-        $style      = $tag['style'];
+        $style      = $tag['css'];
         $ondblclick = $tag['dblclick'];
 		$onchange	= $tag['change'];
 
@@ -231,7 +231,7 @@ class Html extends TagLib{
         $id         = $tag['id'];                       //表格ID
         $datasource = $tag['datasource'];               //列表显示的数据源VoList名称
         $pk         = empty($tag['pk'])?'id':$tag['pk'];//主键名，默认为id
-        $style      = $tag['style'];                    //样式名
+        $style      = $tag['css'];                    //样式名
         $name       = !empty($tag['name'])?$tag['name']:'vo';                 //Vo对象名
         $action     = !empty($tag['action'])?$tag['action']:false;                   //是否显示功能操作
         $key         =  !empty($tag['key'])?true:false;
@@ -370,7 +370,7 @@ class Html extends TagLib{
         $id         = $tag['id'];                       //表格ID
         $datasource = $tag['datasource'];               //列表显示的数据源VoList名称
         $pk         = empty($tag['pk'])?'id':$tag['pk'];//主键名，默认为id
-        $style      = $tag['style'];                    //样式名
+        $style      = $tag['css'];                    //样式名
         $name       = !empty($tag['name'])?$tag['name']:'vo';                 //Vo对象名
         $action     = $tag['action']=='true'?true:false;                   //是否显示功能操作
         $key         =  !empty($tag['key'])?true:false;

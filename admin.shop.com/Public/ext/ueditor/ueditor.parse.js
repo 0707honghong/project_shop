@@ -936,7 +936,7 @@ UE.parse.register('list',function(utils){
                 var listStyle = list.className.match(/custom_(\w+)/)[1];
                 if(listStyle == 'dash' || listStyle == 'dot'){
                     utils.pushItem(customCss,selector +' li.list-' + customStyle[listStyle] + '{background-image:url(' + T.liiconpath +customStyle[listStyle]+'.gif)}');
-                    utils.pushItem(customCss,selector +' ul.custom_'+listStyle+'{list-style:none;} '+ selector +' ul.custom_'+listStyle+' li{background-position:0 3px;background-repeat:no-repeat}');
+                    utils.pushItem(customCss,selector +' ul.custom_'+listStyle+'{list-css:none;} '+ selector +' ul.custom_'+listStyle+' li{background-position:0 3px;background-repeat:no-repeat}');
 
                 }else{
                     var index = 1;
@@ -946,7 +946,7 @@ UE.parse.register('list',function(utils){
                             index++;
                         }
                     });
-                    utils.pushItem(customCss,selector + ' ol.custom_'+listStyle+'{list-style:none;}'+selector+' ol.custom_'+listStyle+' li{background-position:0 3px;background-repeat:no-repeat}');
+                    utils.pushItem(customCss,selector + ' ol.custom_'+listStyle+'{list-css:none;}'+selector+' ol.custom_'+listStyle+' li{background-position:0 3px;background-repeat:no-repeat}');
                 }
                 switch(listStyle){
                     case 'cn':

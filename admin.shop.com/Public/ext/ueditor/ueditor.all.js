@@ -2671,10 +2671,10 @@ var domUtils = dom.domUtils = {
      * @return { Boolean } 两个节点是否具有相同的标签名、属性名以及属性值
      * @example
      * ```html
-     * <span style="font-size:12px">ssss</span>
-     * <span style="font-size:12px">bbbbb</span>
-     * <span style="font-size:13px">ssss</span>
-     * <span style="font-size:14px">bbbbb</span>
+     * <span css="font-size:12px">ssss</span>
+     * <span css="font-size:12px">bbbbb</span>
+     * <span css="font-size:13px">ssss</span>
+     * <span css="font-size:14px">bbbbb</span>
      *
      * <script>
      *
@@ -2746,10 +2746,10 @@ var domUtils = dom.domUtils = {
      * @return { Boolean } 两个节点是否具有相同的style属性值
      * @example
      * ```html
-     * <span style="font-size:12px">ssss</span>
-     * <span style="font-size:12px">bbbbb</span>
-     * <span style="font-size:13px">ssss</span>
-     * <span style="font-size:14px">bbbbb</span>
+     * <span css="font-size:12px">ssss</span>
+     * <span css="font-size:12px">bbbbb</span>
+     * <span css="font-size:13px">ssss</span>
+     * <span css="font-size:14px">bbbbb</span>
      *
      * <script>
      *
@@ -2806,9 +2806,9 @@ var domUtils = dom.domUtils = {
      *          否则，检测该元素的css样式， 如果该元素当前是block元素， 则返回true。 其余情况下都返回false。
      * @example
      * ```html
-     * <span id="test1" style="display: block"></span>
+     * <span id="test1" css="display: block"></span>
      * <span id="test2"></span>
-     * <div id="test3" style="display: inline"></div>
+     * <div id="test3" css="display: inline"></div>
      *
      * <script>
      *
@@ -2978,9 +2978,9 @@ var domUtils = dom.domUtils = {
      * @desc
      * UE.dom.domUtils.mergeChild(node,tagName) //tagName要合并的子节点的标签
      * @example
-     * <p><span style="font-size:12px;">xx<span style="font-size:12px;">aa</span>xx</span></p>
+     * <p><span css="font-size:12px;">xx<span css="font-size:12px;">aa</span>xx</span></p>
      * ==> UE.dom.domUtils.mergeChild(node,'span')
-     * <p><span style="font-size:12px;">xxaaxx</span></p>
+     * <p><span css="font-size:12px;">xxaaxx</span></p>
      */
     mergeChild:function (node, tagName, attrs) {
         var list = domUtils.getElementsByTagName(node, node.tagName.toLowerCase());
@@ -3075,7 +3075,7 @@ var domUtils = dom.domUtils = {
         while (parent && dtd.$removeEmpty[parent.tagName]) {
             if (parent.tagName == node.tagName || parent.tagName == 'A') {//针对a标签单独处理
                 domUtils.trimWhiteTextNode(parent);
-                //span需要特殊处理  不处理这样的情况 <span stlye="color:#fff">xxx<span style="color:#ccc">xxx</span>xxx</span>
+                //span需要特殊处理  不处理这样的情况 <span stlye="color:#fff">xxx<span css="color:#ccc">xxx</span>xxx</span>
                 if (parent.tagName == 'SPAN' && !domUtils.isSameStyle(parent, node)
                     || (parent.tagName == 'A' && node.tagName == 'SPAN')) {
                     if (parent.childNodes.length > 1 || parent !== node.parentNode) {
@@ -3216,14 +3216,14 @@ var domUtils = dom.domUtils = {
      * @example
      * ```html
      * <div id="wrap">
-     *      <span style="font-size:14px;" id="test" name="followMe">xxxxx</span>
+     *      <span css="font-size:14px;" id="test" name="followMe">xxxxx</span>
      * </div>
      *
      * <script>
      *
      *     UE.dom.domUtils.removeAttributes( document.getElementById( "test" ), "id name" );
      *
-     *     //output: <span style="font-size:14px;">xxxxx</span>
+     *     //output: <span css="font-size:14px;">xxxxx</span>
      *     console.log( document.getElementById("wrap").innerHTML );
      *
      * </script>
@@ -3238,14 +3238,14 @@ var domUtils = dom.domUtils = {
      * @example
      * ```html
      * <div id="wrap">
-     *      <span style="font-size:14px;" id="test" name="followMe">xxxxx</span>
+     *      <span css="font-size:14px;" id="test" name="followMe">xxxxx</span>
      * </div>
      *
      * <script>
      *
      *     UE.dom.domUtils.removeAttributes( document.getElementById( "test" ), ["id", "name"] );
      *
-     *     //output: <span style="font-size:14px;">xxxxx</span>
+     *     //output: <span css="font-size:14px;">xxxxx</span>
      *     console.log( document.getElementById("wrap").innerHTML );
      *
      * </script>
@@ -3347,11 +3347,11 @@ var domUtils = dom.domUtils = {
      * @return { String } 获取到的样式值
      * @example
      * ```html
-     * <style type="text/css">
+     * <css type="text/css">
      *      #test {
      *          font-size: 15px;
      *      }
-     * </style>
+     * </css>
      *
      * <span id="test"></span>
      *
@@ -3576,7 +3576,7 @@ var domUtils = dom.domUtils = {
      * @param { String } styleName 需要删除的样式名
      * @example
      * ```html
-     * <span id="test" style="color: red; background: blue;"></span>
+     * <span id="test" css="color: red; background: blue;"></span>
      *
      * <script>
      *
@@ -3585,7 +3585,7 @@ var domUtils = dom.domUtils = {
      *     UE.dom.domUtils.removeStyle( testNode, 'color' );
      *
      *     //output: background: blue;
-     *     console.log( testNode.style.cssText );
+     *     console.log( testNode.css.cssText );
      *
      * </script>
      * ```
@@ -3619,7 +3619,7 @@ var domUtils = dom.domUtils = {
      * @return { String } 该元素包含指定的style属性值
      * @example
      * ```html
-     * <div id="test" style="color: red;"></div>
+     * <div id="test" css="color: red;"></div>
      *
      * <script>
      *
@@ -3653,11 +3653,11 @@ var domUtils = dom.domUtils = {
      *      var testNode = document.getElementById( "test" );
      *
      *      //output: ""
-     *      console.log( testNode.style.color );
+     *      console.log( testNode.css.color );
      *
      *      UE.dom.domUtils.setStyle( testNode, 'color', 'red' );
      *      //output: "red"
-     *      console.log( testNode.style.color );
+     *      console.log( testNode.css.color );
      *
      * </script>
      * ```
@@ -3682,13 +3682,13 @@ var domUtils = dom.domUtils = {
      *      var testNode = document.getElementById( "test" );
      *
      *      //output: ""
-     *      console.log( testNode.style.color );
+     *      console.log( testNode.css.color );
      *
      *      UE.dom.domUtils.setStyles( testNode, {
      *          'color': 'red'
      *      } );
      *      //output: "red"
-     *      console.log( testNode.style.color );
+     *      console.log( testNode.css.color );
      *
      * </script>
      * ```
@@ -3959,7 +3959,7 @@ var domUtils = dom.domUtils = {
      *                                  offset.top的距离
      * @example
      * ```html
-     * <div id="test" style="top: 100px; left: 50px; position: absolute;"></div>
+     * <div id="test" css="top: 100px; left: 50px; position: absolute;"></div>
      *
      * <script>
      *
@@ -3971,7 +3971,7 @@ var domUtils = dom.domUtils = {
      *     } );
      *
      *     //output: top: 300px; left: 100px; position: absolute;
-     *     console.log( testNode.style.cssText );
+     *     console.log( testNode.css.cssText );
      *
      * </script>
      * ```
@@ -5505,11 +5505,11 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * ==>
          *
          * <!-- 执行操作 -->
-         * range.applyInlineStyle("strong",{"style":"font-size:12px"})
+         * range.applyInlineStyle("strong",{"css":"font-size:12px"})
          *
          * ==>
          *
-         * <p>xxxx[<strong style="font-size:12px">xxxx</strong>]x</p>
+         * <p>xxxx[<strong css="font-size:12px">xxxx</strong>]x</p>
          * ```
          */
         applyInlineStyle:function (tagName, attrs, list) {
@@ -6915,16 +6915,16 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
 
                 var html = ( ie && browser.version < 9  ? '' : '<!DOCTYPE html>') +
                     '<html xmlns=\'http://www.w3.org/1999/xhtml\' class=\'view\' ><head>' +
-                    '<style type=\'text/css\'>' +
+                    '<css type=\'text/css\'>' +
                     //设置四周的留边
                     '.view{padding:0;word-wrap:break-word;cursor:text;height:90%;}\n' +
                     //设置默认字体和字号
                     //font-family不能呢随便改，在safari下fillchar会有解析问题
                     'body{margin:8px;font-family:sans-serif;font-size:16px;}' +
                     //设置段落间距
-                    'p{margin:5px 0;}</style>' +
+                    'p{margin:5px 0;}</css>' +
                     ( options.iframeCssUrl ? '<link rel=\'stylesheet\' type=\'text/css\' href=\'' + utils.unhtml(options.iframeCssUrl) + '\'/>' : '' ) +
-                    (options.initialStyle ? '<style>' + options.initialStyle + '</style>' : '') +
+                    (options.initialStyle ? '<css>' + options.initialStyle + '</css>' : '') +
                     '</head><body class=\'view\' ></body>' +
                     '<script type=\'text/javascript\' ' + (ie ? 'defer=\'defer\'' : '' ) +' id=\'_initialScript\'>' +
                     'setTimeout(function(){editor = window.parent.UE.instants[\'ueditorInstant' + me.uid + '\'];editor._setup(document);},0);' +
@@ -6945,7 +6945,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     if( /%$/.test(options.initialFrameWidth)){
                         options.minFrameWidth = options.initialFrameWidth = container.offsetWidth;
                         //如果这里给定宽度，会导致ie在拖动窗口大小时，编辑区域不随着变化
-//                        container.style.width = options.initialFrameWidth + 'px';
+//                        container.css.width = options.initialFrameWidth + 'px';
                     }
                     if(/%$/.test(options.initialFrameHeight)){
                         options.minFrameHeight = options.initialFrameHeight = container.offsetHeight;
@@ -7260,7 +7260,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             if (browser.ie && browser.version > 8) {
                 var headHtmlForIE9 = '';
                 utils.each(me.document.styleSheets, function (si) {
-                    headHtmlForIE9 += ( si.href ? '<link rel="stylesheet" type="text/css" href="' + si.href + '" />' : '<style>' + si.cssText + '</style>');
+                    headHtmlForIE9 += ( si.href ? '<link rel="stylesheet" type="text/css" href="' + si.href + '" />' : '<css>' + si.cssText + '</css>');
                 });
                 utils.each(me.document.getElementsByTagName('script'), function (si) {
                     headHtmlForIE9 += si.outerHTML;
@@ -8584,7 +8584,7 @@ var filterWord = UE.filterWord = function () {
                             n[i] = name + ":" + parts[1];
                         }
                     }
-                    return tag + (n.length ? ' style="' + n.join( ';').replace(/;{2,}/g,';') + '"' : '');
+                    return tag + (n.length ? ' css="' + n.join( ';').replace(/;{2,}/g,';') + '"' : '');
                 })
 
 
@@ -8628,7 +8628,7 @@ var filterWord = UE.filterWord = function () {
      * var node = new uNode({
      *     type:'element',
      *     tagName:'span',
-     *     attrs:{style:'font-size:14px;'}
+     *     attrs:{css:'font-size:14px;'}
      * }
      * ```
      */
@@ -10040,10 +10040,10 @@ UE.plugins['defaultfilter'] = function () {
                             node.setStyle('text-align', val)
                         }
                         //trace:3431
-//                        var cssStyle = node.getAttr('style');
+//                        var cssStyle = node.getAttr('css');
 //                        if (cssStyle) {
 //                            cssStyle = cssStyle.replace(/(margin|padding)[^;]+/g, '');
-//                            node.setAttr('style', cssStyle)
+//                            node.setAttr('css', cssStyle)
 //
 //                        }
                         //p标签不允许嵌套
@@ -10607,7 +10607,7 @@ UE.plugins['autotypeset'] = function(){
                     ci.style.textAlign = opt.textAlign;
                 }
                 // if(opt.lineHeight)
-                //     ci.style.lineHeight = opt.lineHeight + 'cm';
+                //     ci.css.lineHeight = opt.lineHeight + 'cm';
 
             }
 
@@ -10869,7 +10869,7 @@ UE.plugin.register('background', function () {
                 } else {
                     url = su != "none" ? su.replace(/url\("?|"?\)/ig, "") : "";
                 }
-                var html = '<style type="text/css">body{';
+                var html = '<css type="text/css">body{';
                 var bgObj = {
                     "background-color": domUtils.getComputedStyle(body, "background-color") || "#ffffff",
                     'background-image': url ? 'url(' + url + ')' : '',
@@ -10882,7 +10882,7 @@ UE.plugin.register('background', function () {
                         html += name + ":" + bgObj[name] + "; ";
                     }
                 }
-                html += '}</style> ';
+                html += '}</css> ';
                 headHtml.push(html);
             },
             'aftersetcontent': function () {
@@ -10904,7 +10904,7 @@ UE.plugin.register('background', function () {
             var me = this,
                 styles = (utils.cssRule(cssRuleId, me.document) || '').replace(/[\n\r]+/g, '').match(reg);
             if (styles) {
-                root.appendChild(UE.uNode.createElement('<p style="display:none;" data-background="' + utils.trim(styles[1].replace(/"/g, '').replace(/[\s]+/g, ' ')) + '"><br/></p>'));
+                root.appendChild(UE.uNode.createElement('<p css="display:none;" data-background="' + utils.trim(styles[1].replace(/"/g, '').replace(/[\s]+/g, ' ')) + '"><br/></p>'));
             }
         },
         commands: {
@@ -11018,7 +11018,7 @@ UE.commands['imagefloat'] = {
                             pN.appendChild(tmpNode);
                             domUtils.setStyle(tmpNode, 'float', '');
 
-                            me.execCommand('insertHtml', '<p id="_img_parent_tmp" style="text-align:center">' + pN.innerHTML + '</p>');
+                            me.execCommand('insertHtml', '<p id="_img_parent_tmp" css="text-align:center">' + pN.innerHTML + '</p>');
 
                             tmpNode = me.document.getElementById('_img_parent_tmp');
                             tmpNode.removeAttribute('id');
@@ -11148,9 +11148,9 @@ UE.commands['insertimage'] = {
             var first = opt.shift();
             var floatStyle = first['floatStyle'];
             delete first['floatStyle'];
-////                img.style.border = (first.border||0) +"px solid #000";
-////                img.style.margin = (first.margin||0) +"px";
-//                img.style.cssText += ';margin:' + (first.margin||0) +"px;" + 'border:' + (first.border||0) +"px solid #000";
+////                img.css.border = (first.border||0) +"px solid #000";
+////                img.css.margin = (first.margin||0) +"px";
+//                img.css.cssText += ';margin:' + (first.margin||0) +"px;" + 'border:' + (first.border||0) +"px solid #000";
             domUtils.setAttributes(img, first);
             me.execCommand('imagefloat', floatStyle);
             if (opt.length > 0) {
@@ -11167,24 +11167,24 @@ UE.commands['insertimage'] = {
                 str = '<img src="' + ci.src + '" ' + (ci._src ? ' _src="' + ci._src + '" ' : '') +
                     (ci.width ? 'width="' + ci.width + '" ' : '') +
                     (ci.height ? ' height="' + ci.height + '" ' : '') +
-                    (ci['floatStyle'] == 'left' || ci['floatStyle'] == 'right' ? ' style="float:' + ci['floatStyle'] + ';"' : '') +
+                    (ci['floatStyle'] == 'left' || ci['floatStyle'] == 'right' ? ' css="float:' + ci['floatStyle'] + ';"' : '') +
                     (ci.title && ci.title != "" ? ' title="' + ci.title + '"' : '') +
                     (ci.border && ci.border != "0" ? ' border="' + ci.border + '"' : '') +
                     (ci.alt && ci.alt != "" ? ' alt="' + ci.alt + '"' : '') +
                     (ci.hspace && ci.hspace != "0" ? ' hspace = "' + ci.hspace + '"' : '') +
                     (ci.vspace && ci.vspace != "0" ? ' vspace = "' + ci.vspace + '"' : '') + '/>';
                 if (ci['floatStyle'] == 'center') {
-                    str = '<p style="text-align: center">' + str + '</p>';
+                    str = '<p css="text-align: center">' + str + '</p>';
                 }
                 html.push(str);
 
             } else {
                 for (var i = 0; ci = opt[i++];) {
                     unhtmlData(ci);
-                    str = '<p ' + (ci['floatStyle'] == 'center' ? 'style="text-align: center" ' : '') + '><img src="' + ci.src + '" ' +
+                    str = '<p ' + (ci['floatStyle'] == 'center' ? 'css="text-align: center" ' : '') + '><img src="' + ci.src + '" ' +
                         (ci.width ? 'width="' + ci.width + '" ' : '') + (ci._src ? ' _src="' + ci._src + '" ' : '') +
                         (ci.height ? ' height="' + ci.height + '" ' : '') +
-                        ' style="' + (ci['floatStyle'] && ci['floatStyle'] != 'center' ? 'float:' + ci['floatStyle'] + ';' : '') +
+                        ' css="' + (ci['floatStyle'] && ci['floatStyle'] != 'center' ? 'float:' + ci['floatStyle'] + ';' : '') +
                         (ci.border || '') + '" ' +
                         (ci.title ? ' title="' + ci.title + '"' : '') + ' /></p>';
                     html.push(str);
@@ -12078,7 +12078,7 @@ UE.plugins['removeformat'] = function(){
     var me = this;
     me.setOpt({
        'removeFormatTags': 'b,big,code,del,dfn,em,font,i,ins,kbd,q,samp,small,span,strike,strong,sub,sup,tt,u,var',
-       'removeFormatAttributes':'class,style,lang,width,height,align,hspace,valign'
+       'removeFormatAttributes':'class,css,lang,width,height,align,hspace,valign'
     });
     me.commands['removeformat'] = {
         execCommand : function( cmdName, tags, style, attrs,notIncludeA ) {
@@ -12097,7 +12097,7 @@ UE.plugins['removeformat'] = function(){
                 }
                 if (browser.ie) {
                     //ie 下判断实效，所以只能简单用style来判断
-                    //return node.style.cssText == '' ? 1 : 0;
+                    //return node.css.cssText == '' ? 1 : 0;
                     var attrs = node.attributes;
                     if ( attrs.length ) {
                         for ( var i = 0,l = attrs.length; i<l; i++ ) {
@@ -12265,7 +12265,7 @@ UE.plugins['removeformat'] = function(){
  * @example
  * ```javascript
  * editor.execCommand( 'blockquote',{
- *     style: "color: red;"
+ *     css: "color: red;"
  * } );
  * ```
  */
@@ -12685,7 +12685,7 @@ UE.plugins['paragraph'] = function() {
                     var parent = para.parentNode;
                     //如果para上一级是一个block元素且不是body,td就删除它
                     if ( block( parent ) && !domUtils.isBody( para.parentNode ) && utils.indexOf(notExchange,parent.tagName)==-1) {
-                        //存储dir,style
+                        //存储dir,css
                         if(!(sourceCmdName && sourceCmdName == 'customstyle')){
                             parent.getAttribute('dir') && para.setAttribute('dir',parent.getAttribute('dir'));
                             //trace:1070
@@ -13902,7 +13902,7 @@ UE.plugins['pagebreak'] = function () {
     me.addInputRule(function(root){
         root.traversal(function(node){
             if(node.type == 'text' && node.data == me.options.pageBreakTag){
-                var hr = UE.uNode.createElement('<hr class="pagebreak" noshade="noshade" size="5" style="-webkit-user-select: none;">');
+                var hr = UE.uNode.createElement('<hr class="pagebreak" noshade="noshade" size="5" css="-webkit-user-select: none;">');
                 node.parentNode.insertBefore(hr,node);
                 node.parentNode.removeChild(node)
             }
@@ -14658,7 +14658,7 @@ UE.plugins['paste'] = function () {
                 }
             }
             if (!browser.ie) {
-                var spans = div.querySelectorAll('span.Apple-style-span');
+                var spans = div.querySelectorAll('span.Apple-css-span');
                 for (var i = 0, ci; ci = spans[i++];) {
                     domUtils.remove(ci, true);
                 }
@@ -14846,7 +14846,7 @@ UE.plugins['pasteplain'] = function(){
             }
             return {
                 //直接删除及其字节点内容
-                '-' : 'script style object iframe embed input select',
+                '-' : 'script css object iframe embed input select',
                 'p': {$:{}},
                 'br':{$:{}},
                 div: function (node) {
@@ -15002,12 +15002,12 @@ UE.plugins['list'] = function () {
         for(var p in customStyle){
             if(p == 'dash' || p == 'dot'){
                 customCss.push('li.list-' + customStyle[p] + '{background-image:url(' + liiconpath +customStyle[p]+'.gif)}');
-                customCss.push('ul.custom_'+p+'{list-style:none;}ul.custom_'+p+' li{background-position:0 3px;background-repeat:no-repeat}');
+                customCss.push('ul.custom_'+p+'{list-css:none;}ul.custom_'+p+' li{background-position:0 3px;background-repeat:no-repeat}');
             }else{
                 for(var i= 0;i<99;i++){
                     customCss.push('li.list-' + customStyle[p] + i + '{background-image:url(' + liiconpath + 'list-'+customStyle[p] + i + '.gif)}')
                 }
-                customCss.push('ol.custom_'+p+'{list-style:none;}ol.custom_'+p+' li{background-position:0 3px;background-repeat:no-repeat}');
+                customCss.push('ol.custom_'+p+'{list-css:none;}ol.custom_'+p+' li{background-position:0 3px;background-repeat:no-repeat}');
             }
             switch(p){
                 case 'cn':
@@ -17654,17 +17654,17 @@ UE.plugins['video'] = function (){
         switch (type){
             case 'image':
                 str = '<img ' + (id ? 'id="' + id+'"' : '') + ' width="'+ width +'" height="' + height + '" _url="'+url+'" class="' + classname.replace(/\bvideo-js\b/, '') + '"'  +
-                    ' src="' + me.options.UEDITOR_HOME_URL+'themes/default/images/spacer.gif" style="background:url('+me.options.UEDITOR_HOME_URL+'themes/default/images/videologo.gif) no-repeat center center; border:1px solid gray;'+(align ? 'float:' + align + ';': '')+'" />'
+                    ' src="' + me.options.UEDITOR_HOME_URL+'themes/default/images/spacer.gif" css="background:url('+me.options.UEDITOR_HOME_URL+'themes/default/images/videologo.gif) no-repeat center center; border:1px solid gray;'+(align ? 'float:' + align + ';': '')+'" />'
                 break;
             case 'embed':
                 str = '<embed type="application/x-shockwave-flash" class="' + classname + '" pluginspage="http://www.macromedia.com/go/getflashplayer"' +
-                    ' src="' +  utils.html(url) + '" width="' + width  + '" height="' + height  + '"'  + (align ? ' style="float:' + align + '"': '') +
+                    ' src="' +  utils.html(url) + '" width="' + width  + '" height="' + height  + '"'  + (align ? ' css="float:' + align + '"': '') +
                     ' wmode="transparent" play="true" loop="false" menu="false" allowscriptaccess="never" allowfullscreen="true" >';
                 break;
             case 'video':
                 var ext = url.substr(url.lastIndexOf('.') + 1);
                 if(ext == 'ogv') ext = 'ogg';
-                str = '<video' + (id ? ' id="' + id + '"' : '') + ' class="' + classname + ' video-js" ' + (align ? ' style="float:' + align + '"': '') +
+                str = '<video' + (id ? ' id="' + id + '"' : '') + ' class="' + classname + ' video-js" ' + (align ? ' css="float:' + align + '"': '') +
                     ' controls preload="none" width="' + width + '" height="' + height + '" src="' + url + '" data-setup="{}">' +
                     '<source src="' + url + '" type="video/' + ext + '" /></video>';
                 break;
@@ -20245,7 +20245,7 @@ UE.plugins['table'] = function () {
                                 domUtils.fillNode(me.document, td);
                             }
                             removeStyleSize(td, true);
-//                            domUtils.removeAttributes(td, ['style'])
+//                            domUtils.removeAttributes(td, ['css'])
                         });
                     });
                 }
@@ -21065,7 +21065,7 @@ UE.plugins['table'] = function () {
 //
 //                    table.removeAttribute("width");
 //                    utils.each(cells, function (cell) {
-//                        cell.style.width = "";
+//                        cell.css.width = "";
 //                        cell.width -= minWidth;
 //                    });
 
@@ -23048,8 +23048,8 @@ UE.plugins['customstyle'] = function() {
     me.setOpt({ 'customstyle':[
         {tag:'h1',name:'tc', style:'font-size:32px;font-weight:bold;border-bottom:#ccc 2px solid;padding:0 4px 0 0;text-align:center;margin:0 0 20px 0;'},
         {tag:'h1',name:'tl', style:'font-size:32px;font-weight:bold;border-bottom:#ccc 2px solid;padding:0 4px 0 0;text-align:left;margin:0 0 10px 0;'},
-        {tag:'span',name:'im', style:'font-size:16px;font-style:italic;font-weight:bold;line-height:18px;'},
-        {tag:'span',name:'hi', style:'font-size:16px;font-style:italic;font-weight:bold;color:rgb(51, 153, 204);line-height:18px;'}
+        {tag:'span',name:'im', style:'font-size:16px;font-css:italic;font-weight:bold;line-height:18px;'},
+        {tag:'span',name:'hi', style:'font-size:16px;font-css:italic;font-weight:bold;color:rgb(51, 153, 204);line-height:18px;'}
     ]});
     me.commands['customstyle'] = {
         execCommand : function(cmdName, obj) {
@@ -23468,7 +23468,7 @@ UE.commands['insertparagraph'] = {
 //    function createInsertStr( obj, toIframe, addParagraph ) {
 //        return !toIframe ?
 //                (addParagraph ? '<p>' : '') + '<img title="'+obj.title+'" width="' + obj.width + '" height="' + obj.height + '"' +
-//                        ' src="' + me.options.UEDITOR_HOME_URL + 'themes/default/images/spacer.gif" style="background:url(' + obj.logo+') no-repeat center center; border:1px solid gray;" class="edui-faked-webapp" _url="' + obj.url + '" />' +
+//                        ' src="' + me.options.UEDITOR_HOME_URL + 'themes/default/images/spacer.gif" css="background:url(' + obj.logo+') no-repeat center center; border:1px solid gray;" class="edui-faked-webapp" _url="' + obj.url + '" />' +
 //                        (addParagraph ? '</p>' : '')
 //                :
 //                '<iframe class="edui-faked-webapp" title="'+obj.title+'" width="' + obj.width + '" height="' + obj.height + '"  scrolling="no" frameborder="0" src="' + obj.url + '" logo_url = '+obj.logo+'></iframe>';
@@ -23482,7 +23482,7 @@ UE.commands['insertparagraph'] = {
 //                continue;
 //            }
 //            tmpdiv = me.document.createElement( "div" );
-//            tmpdiv.innerHTML = createInsertStr( img2frame ? {url:node.getAttribute( "_url" ), width:node.width, height:node.height,title:node.title,logo:node.style.backgroundImage.replace("url(","").replace(")","")} : {url:node.getAttribute( "src", 2 ),title:node.title, width:node.width, height:node.height,logo:node.getAttribute("logo_url")}, img2frame ? true : false,false );
+//            tmpdiv.innerHTML = createInsertStr( img2frame ? {url:node.getAttribute( "_url" ), width:node.width, height:node.height,title:node.title,logo:node.css.backgroundImage.replace("url(","").replace(")","")} : {url:node.getAttribute( "src", 2 ),title:node.title, width:node.width, height:node.height,logo:node.getAttribute("logo_url")}, img2frame ? true : false,false );
 //            node.parentNode.replaceChild( tmpdiv.firstChild, node );
 //        }
 //    }
@@ -23512,15 +23512,15 @@ UE.plugin.register('webapp', function (){
     function createInsertStr(obj,toEmbed){
         return  !toEmbed ?
             '<img title="'+obj.title+'" width="' + obj.width + '" height="' + obj.height + '"' +
-                ' src="' + me.options.UEDITOR_HOME_URL + 'themes/default/images/spacer.gif" _logo_url="'+obj.logo+'" style="background:url(' + obj.logo
+                ' src="' + me.options.UEDITOR_HOME_URL + 'themes/default/images/spacer.gif" _logo_url="'+obj.logo+'" css="background:url(' + obj.logo
                 +') no-repeat center center; border:1px solid gray;" class="edui-faked-webapp" _url="' + obj.url + '" ' +
                 (obj.align && !obj.cssfloat? 'align="' + obj.align + '"' : '') +
-                (obj.cssfloat ? 'style="float:' + obj.cssfloat + '"' : '') +
+                (obj.cssfloat ? 'css="float:' + obj.cssfloat + '"' : '') +
                 '/>'
             :
             '<iframe class="edui-faked-webapp" title="'+obj.title+'" ' +
                 (obj.align && !obj.cssfloat? 'align="' + obj.align + '"' : '') +
-                (obj.cssfloat ? 'style="float:' + obj.cssfloat + '"' : '') +
+                (obj.cssfloat ? 'css="float:' + obj.cssfloat + '"' : '') +
                 'width="' + obj.width + '" height="' + obj.height + '"  scrolling="no" frameborder="0" src="' + obj.url + '" logo_url = "'+obj.logo+'"></iframe>'
 
     }
@@ -23655,13 +23655,13 @@ UE.plugin.register('music', function (){
         return  !toEmbed ?
                 '<img ' +
                     (align && !cssfloat? 'align="' + align + '"' : '') +
-                    (cssfloat ? 'style="float:' + cssfloat + '"' : '') +
+                    (cssfloat ? 'css="float:' + cssfloat + '"' : '') +
                     ' width="'+ width +'" height="' + height + '" _url="'+url+'" class="edui-faked-music"' +
                     ' src="'+me.options.langPath+me.options.lang+'/images/music.png" />'
             :
             '<embed type="application/x-shockwave-flash" class="edui-faked-music" pluginspage="http://www.macromedia.com/go/getflashplayer"' +
                 ' src="' + url + '" width="' + width  + '" height="' + height  + '" '+ (align && !cssfloat? 'align="' + align + '"' : '') +
-                (cssfloat ? 'style="float:' + cssfloat + '"' : '') +
+                (cssfloat ? 'css="float:' + cssfloat + '"' : '') +
                 ' wmode="transparent" play="true" loop="false" menu="false" allowscriptaccess="never" allowfullscreen="true" >';
     }
     return {
@@ -24482,11 +24482,11 @@ UE.plugin.register('simpleupload', function (){
             wrapper = btnIframeDoc.createElement('div');
 
             wrapper.innerHTML = '<form id="edui_form_' + timestrap + '" target="edui_iframe_' + timestrap + '" method="POST" enctype="multipart/form-data" action="' + me.getOpt('serverUrl') + '" ' +
-            'style="' + btnStyle + '">' +
+            'css="' + btnStyle + '">' +
             '<input id="edui_input_' + timestrap + '" type="file" accept="image/*" name="' + me.options.imageFieldName + '" ' +
-            'style="' + btnStyle + '">' +
+            'css="' + btnStyle + '">' +
             '</form>' +
-            '<iframe id="edui_iframe_' + timestrap + '" name="edui_iframe_' + timestrap + '" style="display:none;width:0;height:0;border:0;margin:0;padding:0;position:absolute;"></iframe>';
+            '<iframe id="edui_iframe_' + timestrap + '" name="edui_iframe_' + timestrap + '" css="display:none;width:0;height:0;border:0;margin:0;padding:0;position:absolute;"></iframe>';
 
             wrapper.className = 'edui-' + me.options.theme;
             wrapper.id = me.ui.id + '_iframeupload';
@@ -24793,9 +24793,9 @@ UE.plugin.register('insertfile', function (){
                         item = filelist[i];
                         icon = iconDir + getFileIcon(item.url);
                         title = item.title || item.url.substr(item.url.lastIndexOf('/') + 1);
-                        html += '<p style="line-height: 16px;">' +
-                            '<img style="vertical-align: middle; margin-right: 2px;" src="'+ icon + '" _src="' + icon + '" />' +
-                            '<a style="font-size:12px; color:#0066cc;" href="' + item.url +'" title="' + title + '">' + title + '</a>' +
+                        html += '<p css="line-height: 16px;">' +
+                            '<img css="vertical-align: middle; margin-right: 2px;" src="'+ icon + '" _src="' + icon + '" />' +
+                            '<a css="font-size:12px; color:#0066cc;" href="' + item.url +'" title="' + title + '">' + title + '</a>' +
                             '</p>';
                     }
                     me.execCommand('insertHtml', html);
@@ -25142,8 +25142,8 @@ UE.ui = baidu.editor.ui = {};
             left: 0,
             top: 0
         });
-//        layer.style.display = 'none';
-//        layer.style.display = 'block';
+//        layer.css.display = 'none';
+//        layer.css.display = 'block';
 
         //#trace: 1354
 //        setTimeout(updateFixedOffset);
@@ -25366,7 +25366,7 @@ UE.ui = baidu.editor.ui = {};
         getHtmlTpl: function (){
             return '<div id="##" class="edui-popup %%" onmousedown="return false;">' +
                 ' <div id="##_body" class="edui-popup-body">' +
-                ' <iframe style="position:absolute;z-index:-1;left:0;top:0;background-color: transparent;" frameborder="0" width="100%" height="100%" src="about:blank"></iframe>' +
+                ' <iframe css="position:absolute;z-index:-1;left:0;top:0;background-color: transparent;" frameborder="0" width="100%" height="100%" src="about:blank"></iframe>' +
                 ' <div class="edui-shadow"></div>' +
                 ' <div id="##_content" class="edui-popup-content">' +
                 this.getContentHtmlTpl() +
@@ -25633,16 +25633,16 @@ UE.ui = baidu.editor.ui = {};
             '<div unselectable="on" id="##_preview" class="edui-colorpicker-preview"></div>' +
             '<div unselectable="on" class="edui-colorpicker-nocolor" onclick="$$._onPickNoColor(event, this);">'+ noColorText +'</div>' +
             '</div>' +
-            '<table  class="edui-box" style="border-collapse: collapse;" onmouseover="$$._onTableOver(event, this);" onmouseout="$$._onTableOut(event, this);" onclick="return $$._onTableClick(event, this);" cellspacing="0" cellpadding="0">' +
-            '<tr style="border-bottom: 1px solid #ddd;font-size: 13px;line-height: 25px;color:#39C;padding-top: 2px"><td colspan="10">'+editor.getLang("themeColor")+'</td> </tr>'+
+            '<table  class="edui-box" css="border-collapse: collapse;" onmouseover="$$._onTableOver(event, this);" onmouseout="$$._onTableOut(event, this);" onclick="return $$._onTableClick(event, this);" cellspacing="0" cellpadding="0">' +
+            '<tr css="border-bottom: 1px solid #ddd;font-size: 13px;line-height: 25px;color:#39C;padding-top: 2px"><td colspan="10">'+editor.getLang("themeColor")+'</td> </tr>'+
             '<tr class="edui-colorpicker-tablefirstrow" >';
         for (var i=0; i<COLORS.length; i++) {
             if (i && i%10 === 0) {
-                html += '</tr>'+(i==60?'<tr style="border-bottom: 1px solid #ddd;font-size: 13px;line-height: 25px;color:#39C;"><td colspan="10">'+editor.getLang("standardColor")+'</td></tr>':'')+'<tr'+(i==60?' class="edui-colorpicker-tablefirstrow"':'')+'>';
+                html += '</tr>'+(i==60?'<tr css="border-bottom: 1px solid #ddd;font-size: 13px;line-height: 25px;color:#39C;"><td colspan="10">'+editor.getLang("standardColor")+'</td></tr>':'')+'<tr'+(i==60?' class="edui-colorpicker-tablefirstrow"':'')+'>';
             }
-            html += i<70 ? '<td style="padding: 0 2px;"><a hidefocus title="'+COLORS[i]+'" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell"' +
+            html += i<70 ? '<td css="padding: 0 2px;"><a hidefocus title="'+COLORS[i]+'" onclick="return false;" href="javascript:" unselectable="on" class="edui-box edui-colorpicker-colorcell"' +
                 ' data-color="#'+ COLORS[i] +'"'+
-                ' style="background-color:#'+ COLORS[i] +';border:solid #ccc;'+
+                ' css="background-color:#'+ COLORS[i] +';border:solid #ccc;'+
                 (i<10 || i>=60?'border-width:1px;':
                     i>=10&&i<20?'border-width:1px 1px 0 1px;':
 
@@ -25884,7 +25884,7 @@ UE.ui = baidu.editor.ui = {};
             this.initUIBase();
             this.Stateful_init();
             if(this.cssRules){
-                utils.cssRule('edui-customize-'+this.name+'-style',this.cssRules);
+                utils.cssRule('edui-customize-'+this.name+'-css',this.cssRules);
             }
         },
         getHtmlTpl: function (){
@@ -25968,7 +25968,7 @@ UE.ui = baidu.editor.ui = {};
             popup.addListener('postrender', utils.bind(function (){
                 popup.getDom('body').appendChild(
                     uiUtils.createElementByHtml('<div id="' +
-                        this.popup.id + '_bordereraser" class="edui-bordereraser edui-background" style="width:' +
+                        this.popup.id + '_bordereraser" class="edui-bordereraser edui-background" css="width:' +
                         (uiUtils.getClientRect(this.getDom()).width + 20) + 'px"></div>')
                     );
                 popup.getDom().className += ' ' + this.className;
@@ -26972,7 +26972,7 @@ UE.ui = baidu.editor.ui = {};
             var me = this,
                 theme=this.editor.options.theme;
             if(this.cssRules){
-                utils.cssRule('edui-customize-'+this.name+'-style',this.cssRules);
+                utils.cssRule('edui-customize-'+this.name+'-css',this.cssRules);
             }
             this.initUIBase();
             this.modalMask = (modalMask || (modalMask = new Mask({
@@ -27705,7 +27705,7 @@ UE.ui = baidu.editor.ui = {};
             return '<div id="##" class="edui-message %%">' +
             ' <div id="##_closer" class="edui-message-closer">×</div>' +
             ' <div id="##_body" class="edui-message-body edui-message-type-info">' +
-            ' <iframe style="position:absolute;z-index:-1;left:0;top:0;background-color: transparent;" frameborder="0" width="100%" height="100%" src="about:blank"></iframe>' +
+            ' <iframe css="position:absolute;z-index:-1;left:0;top:0;background-color: transparent;" frameborder="0" width="100%" height="100%" src="about:blank"></iframe>' +
             ' <div class="edui-shadow"></div>' +
             ' <div id="##_content" class="edui-message-content">' +
             '  </div>' +
@@ -28174,7 +28174,7 @@ UE.ui = baidu.editor.ui = {};
                     value:val,
                     theme:editor.options.theme,
                     renderLabelHtml:function () {
-                        return '<div class="edui-label %%-label" style="font-family:' +
+                        return '<div class="edui-label %%-label" css="font-family:' +
                             utils.unhtml(this.value) + '">' + (this.label || '') + '</div>';
                     }
                 });
@@ -28235,7 +28235,7 @@ UE.ui = baidu.editor.ui = {};
                 value:size,
                 theme:editor.options.theme,
                 renderLabelHtml:function () {
-                    return '<div class="edui-label %%-label" style="line-height:1;font-size:' +
+                    return '<div class="edui-label %%-label" css="line-height:1;font-size:' +
                         this.value + '">' + (this.label || '') + '</div>';
                 }
             });
@@ -28339,7 +28339,7 @@ UE.ui = baidu.editor.ui = {};
                     theme:editor.options.theme,
                     renderLabelHtml:function () {
                         return '<div class="edui-label %%-label">' + '<' + ck.tag + ' ' + (ck.className ? ' class="' + ck.className + '"' : "")
-                            + (ck.style ? ' style="' + ck.style + '"' : "") + '>' + ck.label + "<\/" + ck.tag + ">"
+                            + (ck.style ? ' css="' + ck.style + '"' : "") + '>' + ck.label + "<\/" + ck.tag + ">"
                             + '</div>';
                     }
                 });
@@ -28928,7 +28928,7 @@ UE.ui = baidu.editor.ui = {};
                                 txt = url.substring(0, 20) + "...";
                             }
                             if (html) {
-                                html += '<div style="height:5px;"></div>'
+                                html += '<div css="height:5px;"></div>'
                             }
                             html += popup.formatHtml(
                                 '<nobr>' + editor.getLang("anthorMsg") + ': <a target="_blank" href="' + url + '" title="' + url + '" >' + txt + '</a>' +
@@ -29020,11 +29020,11 @@ UE.ui = baidu.editor.ui = {};
                     '<div id="##_toolbarboxouter" class="%%-toolbarboxouter"><div class="%%-toolbarboxinner">' +
                         this.renderToolbarBoxHtml() +
                         '</div></div>' : '') +
-                '<div id="##_toolbarmsg" class="%%-toolbarmsg" style="display:none;">' +
+                '<div id="##_toolbarmsg" class="%%-toolbarmsg" css="display:none;">' +
                 '<div id = "##_upload_dialog" class="%%-toolbarmsg-upload" onclick="$$.showWordImageDialog();">' + this.editor.getLang("clickToUpload") + '</div>' +
                 '<div class="%%-toolbarmsg-close" onclick="$$.hideToolbarMsg();">x</div>' +
                 '<div id="##_toolbarmsg_label" class="%%-toolbarmsg-label"></div>' +
-                '<div style="height:0;overflow:hidden;clear:both;"></div>' +
+                '<div css="height:0;overflow:hidden;clear:both;"></div>' +
                 '</div>' +
                 '<div id="##_message_holder" class="%%-messageholder"></div>' +
                 '</div>' +

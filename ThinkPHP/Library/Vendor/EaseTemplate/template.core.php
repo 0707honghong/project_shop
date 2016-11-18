@@ -937,25 +937,25 @@ class ETCore{
 			foreach($this->IncList AS $K=>$V){
 				$File_Size   = @round($FSize[$K] / 1024 * 100) / 100 . 'KB';
 				$Fwidth	     = @floor(100*$FSize[$K]/$AllSize);
-				$list_file[] = "<tr><td colspan=\"2\" bgcolor=\"#F7F7F7\" title='".$Fwidth."%'><a href='".$this->TemplateDir.$V."' target='_blank'><font color='#6F7D84' style='font-size:14px;'>".$this->TemplateDir.$V."</font></a>
-				<font color='#B4B4B4' style='font-size:10px;'>".$File_Size."</font>
-				<table border='1' width='".$Fwidth."%' style='border-collapse: collapse' bordercolor='#89A3ED' bgcolor='#4886B3'><tr><td></td></tr></table></td></tr>";
+				$list_file[] = "<tr><td colspan=\"2\" bgcolor=\"#F7F7F7\" title='".$Fwidth."%'><a href='".$this->TemplateDir.$V."' target='_blank'><font color='#6F7D84' css='font-size:14px;'>".$this->TemplateDir.$V."</font></a>
+				<font color='#B4B4B4' css='font-size:10px;'>".$File_Size."</font>
+				<table border='1' width='".$Fwidth."%' css='border-collapse: collapse' bordercolor='#89A3ED' bgcolor='#4886B3'><tr><td></td></tr></table></td></tr>";
 			}
 
 			//连接地址
 			$BackURL = preg_replace("/.+\//","\\1",$this->Server['REQUEST_URI']);
 			$NowPAGE = 'http://'.$this->Server['HTTP_HOST'].$this->Server['SCRIPT_NAME'];
 			$clear_link = $NowPAGE."?Ease_Templatepage=Clear&REFERER=".urlencode($BackURL)."!!!";
-			$sf13    = ' style="font-size:13px;color:#666666"';
-			echo '<br><table border="1" width="100%" cellpadding="3" style="border-collapse: collapse" bordercolor="#DCDCDC">
-<tr bgcolor="#B5BDC1"><td><font color=#000000 style="font-size:16px;"><b>Include Templates (Num:'.count($this-> IncList).')</b></font></td>
+			$sf13    = ' css="font-size:13px;color:#666666"';
+			echo '<br><table border="1" width="100%" cellpadding="3" css="border-collapse: collapse" bordercolor="#DCDCDC">
+<tr bgcolor="#B5BDC1"><td><font color=#000000 css="font-size:16px;"><b>Include Templates (Num:'.count($this-> IncList).')</b></font></td>
 <td align="right">';
 
 if($this->RunType=='Cache'){
 	echo '[<a onclick="alert(\'Cache file is successfully deleted\');location=\''.$clear_link.'\';return false;" href="'.$clear_link.'"><font'.$sf13.'>Clear Cache</font></a>]';
 }
 
-echo '</td></tr><tr><td colspan="2" bgcolor="#F7F7F7"><table border="0" width="100%" cellpadding="0" style="border-collapse: collapse">
+echo '</td></tr><tr><td colspan="2" bgcolor="#F7F7F7"><table border="0" width="100%" cellpadding="0" css="border-collapse: collapse">
 <tr><td'.$sf13.'>Cache File ID: <b>'.substr($this->TplID,0,-1).'</b></td>
 <td'.$sf13.'>Index: <b>'.((count($this->FileList)==0)?'False':'True').'</b></td>
 <td'.$sf13.'>Format: <b>'.$this->Ext.'</b></td>

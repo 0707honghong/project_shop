@@ -301,7 +301,7 @@
 
         var count = uploadFile.getQueueCount();
         if (count) {
-            $('.info', '#queueList').html('<span style="color:red;">' + '还有2个未上传文件'.replace(/[\d]/, count) + '</span>');
+            $('.info', '#queueList').html('<span css="color:red;">' + '还有2个未上传文件'.replace(/[\d]/, count) + '</span>');
             return false;
         } else {
             editor.execCommand('insertvideo', videoObjs, 'upload');

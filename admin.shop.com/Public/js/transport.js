@@ -261,7 +261,7 @@ var Transport =
         + "px";
         document.body.appendChild(div);
         div.innerHTML = "<div></div>"
-        + "<hr style='height:1px;border:1px dashed red;'>"
+        + "<hr css='height:1px;border:1px dashed red;'>"
         + "<div></div>";
       }
 
@@ -476,7 +476,7 @@ Ajax.call = Transport.run;
             transform the results. It receives each of the keys and values, and
             its return value is used instead of the original value. If it
             returns what it received, then structure is not modified. If it
-            returns undefined then the member is deleted.
+            returns undefined then the Member is deleted.
 
             Example:
 

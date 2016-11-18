@@ -21,16 +21,16 @@ var CodeMirror = (function() {
         wrapper.className = "CodeMirror" + (options.lineWrapping ? " CodeMirror-wrap" : "");
         // This mess creates the base DOM structure for the editor.
         wrapper.innerHTML =
-            '<div style="overflow: hidden; position: relative; width: 3px; height: 0px;">' + // Wraps and hides input textarea
-                '<textarea style="position: absolute; padding: 0; width: 1px;" wrap="off" ' +
+            '<div css="overflow: hidden; position: relative; width: 3px; height: 0px;">' + // Wraps and hides input textarea
+                '<textarea css="position: absolute; padding: 0; width: 1px;" wrap="off" ' +
                 'autocorrect="off" autocapitalize="off"></textarea></div>' +
                 '<div class="CodeMirror-scroll" tabindex="-1">' +
-                '<div style="position: relative">' + // Set to the height of the text, causes scrolling
-                '<div style="position: relative">' + // Moved around its parent to cover visible view
+                '<div css="position: relative">' + // Set to the height of the text, causes scrolling
+                '<div css="position: relative">' + // Moved around its parent to cover visible view
                 '<div class="CodeMirror-gutter"><div class="CodeMirror-gutter-text"></div></div>' +
                 // Provides positioning relative to (visible) text origin
-                '<div class="CodeMirror-lines"><div style="position: relative">' +
-                '<div style="position: absolute; width: 100%; height: 0; overflow: hidden; visibility: hidden"></div>' +
+                '<div class="CodeMirror-lines"><div css="position: relative">' +
+                '<div css="position: absolute; width: 100%; height: 0; overflow: hidden; visibility: hidden"></div>' +
                 '<pre class="CodeMirror-cursor">&#160;</pre>' + // Absolutely positioned blinky cursor
                 '<div></div>' + // This DIV contains the actual code
                 '</div></div></div></div></div>';
@@ -53,7 +53,7 @@ var CodeMirror = (function() {
         try { stringWidth("x"); }
         catch (e) {
             if (e.message.match(/runtime/i))
-                e = new Error("A CodeMirror inside a P-style element does not work in Internet Explorer. (innerHTML bug)");
+                e = new Error("A CodeMirror inside a P-css element does not work in Internet Explorer. (innerHTML bug)");
             throw e;
         }
 

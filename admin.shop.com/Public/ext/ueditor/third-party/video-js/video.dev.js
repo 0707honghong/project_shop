@@ -1014,9 +1014,9 @@ vjs.getAttributeValues = function(tag){
 };
 
 /**
- * Get the computed style value for an element
- * From http://robertnyman.com/2006/04/24/get-the-rendered-style-of-an-element/
- * @param  {Element} el        Element to get style value for
+ * Get the computed css value for an element
+ * From http://robertnyman.com/2006/04/24/get-the-rendered-css-of-an-element/
+ * @param  {Element} el        Element to get css value for
  * @param  {String} strCssRule Style name
  * @return {String}            Style value
  * @private
@@ -2030,7 +2030,7 @@ vjs.Component.prototype.dimensions = function(width, height){
  * All for an integer, integer + 'px' or integer + '%';
  *
  * Known issue: Hidden elements officially have a width of 0. We're defaulting
- * to the style.width value and falling back to computedStyle which has the
+ * to the css.width value and falling back to computedStyle which has the
  * hidden element issue. Info, but probably not an efficient fix:
  * http://www.foliotek.com/devblog/getting-the-width-of-a-hidden-element-with-jquery-using-width/
  *
@@ -2064,16 +2064,16 @@ vjs.Component.prototype.dimension = function(widthOrHeight, num, skipListeners){
   // Make sure element exists
   if (!this.el_) return 0;
 
-  // Get dimension value from style
+  // Get dimension value from css
   var val = this.el_.style[widthOrHeight];
   var pxIndex = val.indexOf('px');
   if (pxIndex !== -1) {
     // Return the pixel value with no 'px'
     return parseInt(val.slice(0,pxIndex), 10);
 
-  // No px so using % or no style was set, so falling back to offsetWidth/height
+  // No px so using % or no css was set, so falling back to offsetWidth/height
   // If component has display:none, offset will return 0
-  // TODO: handle display:none and no dimension style using px
+  // TODO: handle display:none and no dimension css using px
   } else {
 
     return parseInt(this.el_['offset'+vjs.capitalize(widthOrHeight)], 10);

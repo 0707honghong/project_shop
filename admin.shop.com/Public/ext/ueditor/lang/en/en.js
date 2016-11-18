@@ -86,7 +86,7 @@ UE.I18N['en'] = {
     'elementPathTip':"Path",
     'wordCountTip':"Word Count",
     'wordCountMsg':'{#count} characters entered,{#leave} left. ',
-    'wordOverFlowMsg':'<span style="color:red;">The number of characters has exceeded allowable maximum values, the server may refuse to save!</span>',
+    'wordOverFlowMsg':'<span css="color:red;">The number of characters has exceeded allowable maximum values, the server may refuse to save!</span>',
     'ok':"OK",
     'cancel':"Cancel",
     'closeDialog':"closeDialog",
@@ -615,7 +615,7 @@ UE.I18N['en'] = {
     },
     'edittable':{
         'static':{
-            'lang_tableStyle':'Table style',
+            'lang_tableStyle':'Table css',
             'lang_insertCaption':'Add table header row',
             'lang_insertTitle':'Add table title row',
             'lang_insertTitleCol':'Add table title col',

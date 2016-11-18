@@ -912,7 +912,7 @@ if(!Array.prototype.indexOf){
 				return a;
 			}
 			
-			// get or create style, crawls up node tree
+			// get or create css, crawls up node tree
 			this.style = function(name, createIfNotExists) {
 				var s = this.styles[name];
 				if (s != null) return s;
@@ -2406,7 +2406,7 @@ if(!Array.prototype.indexOf){
 		}
 		svg.Element.symbol.prototype = new svg.Element.RenderedElementBase;		
 			
-		// style element
+		// css element
 		svg.Element.style = function(node) { 
 			this.base = svg.Element.ElementBase;
 			this.base(node);
@@ -2999,7 +2999,7 @@ if (CanvasRenderingContext2D) {
 				tooltipLine = renderer.ttLine,
 				padding = parseInt(tooltipDivStyle.padding, 10);
 
-			// Add border styling from options to the style
+			// Add border styling from options to the css
 			tooltipDivStyle = merge(tooltipDivStyle, {
 				padding: padding + PX,
 				'background-color': options.backgroundColor,
@@ -3017,7 +3017,7 @@ if (CanvasRenderingContext2D) {
 			}
 			css(tooltipDiv, tooltipDivStyle);
 
-			// Set simple style on the line
+			// Set simple css on the line
 			css(tooltipLine, {
 				'border-left': '1px solid darkgray'
 			});

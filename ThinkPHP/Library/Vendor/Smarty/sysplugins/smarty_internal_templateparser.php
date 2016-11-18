@@ -88,8 +88,8 @@ class Smarty_Internal_Templateparser#line 79 "smarty_internal_templateparser.php
 {
 #line 14 "smarty_internal_templateparser.y"
 
-    const Err1 = "Security error: Call to private object member not allowed";
-    const Err2 = "Security error: Call to dynamic object member not allowed";
+    const Err1 = "Security error: Call to private object Member not allowed";
+    const Err2 = "Security error: Call to dynamic object Member not allowed";
     const Err3 = "PHP in template not allowed. Use SmartyBC to enable it";
     // states whether the parse was successful or not
     public $successful = true;

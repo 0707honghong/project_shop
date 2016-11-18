@@ -1425,7 +1425,7 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
     };
 
     /**
-     * Wraps each line of the string into <code/> tag with given style applied to it.
+     * Wraps each line of the string into <code/> tag with given css applied to it.
      *
      * @param {String} str   Input string.
      * @param {String} css   Style name to apply to the string.
@@ -2044,7 +2044,7 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
         },
 
         /**
-         * Generates HTML markup for a single line of code while determining alternating line style.
+         * Generates HTML markup for a single line of code while determining alternating line css.
          * @param {Integer} lineNumber	Line number.
          * @param {String} code Line	HTML markup.
          * @return {String}				Returns HTML markup.
@@ -2224,7 +2224,7 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
             if ((gutter = this.getParam('gutter')) == false)
                 classes.push('nogutter');
 
-            // add custom user style name
+            // add custom user css name
             classes.push(this.getParam('class-name'));
 
             // add brush alias to the class name for custom CSS
@@ -2758,15 +2758,15 @@ typeof(exports) != 'undefined' ? exports.SyntaxHighlighter = SyntaxHighlighter :
 		};
 
 		var keywords =	'ascent azimuth background-attachment background-color background-image background-position ' +
-						'background-repeat background baseline bbox border-collapse border-color border-spacing border-style border-top ' +
+						'background-repeat background baseline bbox border-collapse border-color border-spacing border-css border-top ' +
 						'border-right border-bottom border-left border-top-color border-right-color border-bottom-color border-left-color ' +
-						'border-top-style border-right-style border-bottom-style border-left-style border-top-width border-right-width ' +
+						'border-top-css border-right-css border-bottom-css border-left-css border-top-width border-right-width ' +
 						'border-bottom-width border-left-width border-width border bottom cap-height caption-side centerline clear clip color ' +
 						'content counter-increment counter-reset cue-after cue-before cue cursor definition-src descent direction display ' +
-						'elevation empty-cells float font-size-adjust font-family font-size font-stretch font-style font-variant font-weight font ' +
-						'height left letter-spacing line-height list-style-image list-style-position list-style-type list-style margin-top ' +
+						'elevation empty-cells float font-size-adjust font-family font-size font-stretch font-css font-variant font-weight font ' +
+						'height left letter-spacing line-height list-css-image list-css-position list-css-type list-css margin-top ' +
 						'margin-right margin-bottom margin-left margin marker-offset marks mathline max-height max-width min-height min-width orphans ' +
-						'outline-color outline-style outline-width outline overflow padding-top padding-right padding-bottom padding-left padding page ' +
+						'outline-color outline-css outline-width outline overflow padding-top padding-right padding-bottom padding-left padding page ' +
 						'page-break-after page-break-before page-break-inside pause pause-after pause-before pitch pitch-range play-during position ' +
 						'quotes right richness size slope src speak-header speak-numeral speak-punctuation speak speech-rate stemh stemv stress ' +
 						'table-layout text-align top text-decoration text-indent text-shadow text-transform unicode-bidi unicode-range units-per-em ' +
@@ -3415,15 +3415,15 @@ typeof(exports) != 'undefined' ? exports.SyntaxHighlighter = SyntaxHighlighter :
 		};
 
 		var keywords =	'ascent azimuth background-attachment background-color background-image background-position ' +
-						'background-repeat background baseline bbox border-collapse border-color border-spacing border-style border-top ' +
+						'background-repeat background baseline bbox border-collapse border-color border-spacing border-css border-top ' +
 						'border-right border-bottom border-left border-top-color border-right-color border-bottom-color border-left-color ' +
-						'border-top-style border-right-style border-bottom-style border-left-style border-top-width border-right-width ' +
+						'border-top-css border-right-css border-bottom-css border-left-css border-top-width border-right-width ' +
 						'border-bottom-width border-left-width border-width border bottom cap-height caption-side centerline clear clip color ' +
 						'content counter-increment counter-reset cue-after cue-before cue cursor definition-src descent direction display ' +
-						'elevation empty-cells float font-size-adjust font-family font-size font-stretch font-style font-variant font-weight font ' +
-						'height left letter-spacing line-height list-style-image list-style-position list-style-type list-style margin-top ' +
+						'elevation empty-cells float font-size-adjust font-family font-size font-stretch font-css font-variant font-weight font ' +
+						'height left letter-spacing line-height list-css-image list-css-position list-css-type list-css margin-top ' +
 						'margin-right margin-bottom margin-left margin marker-offset marks mathline max-height max-width min-height min-width orphans ' +
-						'outline-color outline-style outline-width outline overflow padding-top padding-right padding-bottom padding-left padding page ' +
+						'outline-color outline-css outline-width outline overflow padding-top padding-right padding-bottom padding-left padding page ' +
 						'page-break-after page-break-before page-break-inside pause pause-after pause-before pitch pitch-range play-during position ' +
 						'quotes right richness size slope src speak-header speak-numeral speak-punctuation speak speech-rate stemh stemv stress ' +
 						'table-layout text-align top text-decoration text-indent text-shadow text-transform unicode-bidi unicode-range units-per-em ' +
